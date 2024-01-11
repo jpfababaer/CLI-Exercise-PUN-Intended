@@ -60,11 +60,14 @@ class Workouts
   def workout_list
     puts "Here are your workouts: "
     puts "\n"
-    
+    counter = 1
     @workouts.each do |one_exercise|
-      puts "Your exercise: #{one_exercise.exercise}"
+      
+      puts "Exercise ##{counter}: #{one_exercise.exercise}"
       puts "It was #{one_exercise.sets} sets of #{one_exercise.reps} repetition with #{one_exercise.weights}lbs."
       puts "\n"
+
+      counter += 1
     end
   end
 
