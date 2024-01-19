@@ -33,6 +33,7 @@ class Workouts
       when 4
         push_ups_list
       when 5
+        puts "\n"
         puts "Get some rest! Sleep well."
         break
       else
@@ -45,12 +46,13 @@ class Workouts
 
     puts "\n"
     puts "What's poppin'! How can I help with your workouts today?"
-
+    puts "\n"
   end
 
   #Method 1: Adding workouts
   def add_workout
 
+    puts "\n"
     puts "What exercise did you do today?"
     @exercise = gets.chomp
 
@@ -66,7 +68,9 @@ class Workouts
     workout = Exercise.new(@exercise, @sets, @reps, @weights)
     @workouts << workout #Class gets added to workout Array
 
+    puts "\n"
     puts "Thank you for recording your workout!"
+    puts "\n"
     
   end
 
@@ -75,7 +79,7 @@ class Workouts
     puts "Here are your workouts: "
     puts "\n"
     counter = 1
-    
+
     @workouts.each do |one_exercise|
       
       puts "Exercise ##{counter}: #{one_exercise.exercise}"
@@ -89,10 +93,13 @@ class Workouts
   #Method 3: Do a push-up
   def push_ups
     @pushups += 1
+    puts "\n"
   end
 
   #Method 4: Print push-up list
   def push_ups_list
+
+    puts "\n"
     puts "Your total push-up count: #{@pushups}. Keep going!"
     puts "\n"
   end
