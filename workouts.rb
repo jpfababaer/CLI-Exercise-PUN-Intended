@@ -7,17 +7,19 @@ class Workouts
     @pushups = 0
   end
 
-  #Loop method for infinite loop:
+  
   def run 
+    #Greets the user ONE time!
+    introduction
+
+    #Loop method for infinite loop:
     loop do
-      puts "\n"
-      puts "What's poppin'! How can I help with your workouts today?"
-      puts "\n"
       puts "Here are your options: "
       puts "1: Add a workout"
       puts "2: Check the workout list"
       puts "3: +1 push-up"
-      puts "4: Log out."
+      puts "4: How many push-ups have I done?"
+      puts "5: Log out."
 
       option = gets.chomp.to_i
 
@@ -29,6 +31,8 @@ class Workouts
       when 3
         push_ups
       when 4
+        push_ups_list
+      when 5
         puts "Get some rest! Sleep well."
         break
       else
@@ -37,23 +41,33 @@ class Workouts
     end
   end
 
+  def introduction
+
+    puts "\n"
+    puts "What's poppin'! How can I help with your workouts today?"
+
+  end
+
   #Method 1: Adding workouts
   def add_workout
 
     puts "What exercise did you do today?"
-    exercise = gets.chomp
+    @exercise = gets.chomp
 
     puts "How many sets were they?"
-    sets = gets.chomp.to_i
+    @sets = gets.chomp.to_i
 
     puts "How many repetitions were in each set?"
-    reps = gets.chomp.to_i
+    @reps = gets.chomp.to_i
 
     puts "What was the weight you were using?"
-    weights = gets.chomp.to_i
+    @weights = gets.chomp.to_i
 
-    workout = Exercise.new(exercise, sets, reps, weights)
-    @workouts << workout
+    workout = Exercise.new(@exercise, @sets, @reps, @weights)
+    @workouts << workout #Class gets added to workout Array
+
+    puts "Thank you for recording your workout!"
+    
   end
 
   #Method 2: View workout list
@@ -61,6 +75,7 @@ class Workouts
     puts "Here are your workouts: "
     puts "\n"
     counter = 1
+    
     @workouts.each do |one_exercise|
       
       puts "Exercise ##{counter}: #{one_exercise.exercise}"
@@ -74,8 +89,12 @@ class Workouts
   #Method 3: Do a push-up
   def push_ups
     @pushups += 1
+  end
 
-    puts "Your total push-up count: #{@pushups}. NICE!"
+  #Method 4: Print push-up list
+  def push_ups_list
+    puts "Your total push-up count: #{@pushups}. Keep going!"
+    puts "\n"
   end
 end
 
