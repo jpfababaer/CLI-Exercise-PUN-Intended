@@ -93,7 +93,6 @@ class Workouts
   #Method 3: Do a push-up
   def push_ups
     @pushups += 1
-    puts "\n"
   end
 
   #Method 4: Print push-up list
